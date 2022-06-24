@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+</head>
+<body>
+    <label for="search">Search by contact name: </label>
+    <input type="text" id="search"> 
+    <button>Search</button>
+    <p></p>
+    <script>
+        // list of contacts on which we have to search on.
+        const contacts = ['Chris:2232322', 'Sarah:3453456', 'Bill:7654322', 'Mary:9998769', 'Dianne:9384975'];
+        
+        const input = document.querySelector('#search');
+        const btn = document.querySelector('button');
+        const para = document.querySelector('p');
+
+        function search(){
+            const searchName = input.value.toLowerCase();
+
+            for(contact of contacts){
+                const contactSplit = contact.split(":");
+                if(contactSplit[0].toLowerCase() === searchName){
+                    para.textContent = `${searchName} contact number is ${contactSplit[1]}`;
+                    break;
+                }
+            }
+            if(para.textContent === ''){
+                para.textContent = 'Contact not found';
+            }
+            setTimeout(()=>{
+                para.textContent = ''; 
+                input.focus();
+            },5000);
+        }
+        btn.addEventListener('click',search);
+    </script>
+</body>
+</html>
