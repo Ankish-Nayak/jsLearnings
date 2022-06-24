@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SquaresOnly</title>
+</head>
+<body>
+    <label for="Enter number:">Enter Number:</label>
+    <input type="text">
+    <button>Generate integer value</button>
+    <p>output: </p>
+    <script>
+        const button = document.querySelector('button');
+        const input = document.querySelector('input');
+        const para = document.querySelector('p');
+        // function will only return squares only in para element.
+        function squaresOnly(){
+            let n = Number(input.value);
+            for(let i = 1; i<=n; ++i){
+                let sqrtn = Math.sqrt(i);
+                if(sqrtn != Math.floor(sqrtn)){
+                    continue;
+                }
+                para.textContent += ` ${i}`;
+            }
+            setTimeout(()=>{
+                para.textContent = '';
+            },5000);
+        }
+        button.addEventListener('click',squaresOnly);
+    </script>
+</body>
+</html>
