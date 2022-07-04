@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Oriented Javascript Example</title>
+</head>
+<body>
+    <p></p>
+    <script>
+        const person = {
+            name : {
+                first : 'Bob',
+                last : 'Smith'
+            },
+            age: 32,
+            bio: function() {
+                console.log(`${this.name[0]} ${this.name[1]} is ${this.age} years old.`);
+            },
+            introduceSelf: function() {
+                console.log(`Hi! I'm ${this.name[0]}.`);
+            }
+        };
+        // we are using function inorder to create objects
+        // function createPerson(name){
+        //     const obj = {};
+        //     obj.name = name;
+        //     obj.introduceSelf = function(){
+        //         console.log(`Hi! I'm ${this.name}.`);
+        //     }
+        //     return obj;
+        // }
+        // const salva = createPerson('Salva');
+        // above method is fine but it is bit longer
+        
+        // we can use constructor concept here.
+
+        function Person(name){
+            this.name = name;
+            this.introduceSelf = function(){
+                console.log(`Hi! I'm ${this.name}.`);
+            } 
+        }
+        const salva = new Person('Salva');
+        const frankie = new Person('Frankie');
+
+    </script>
+</body>
+</html>
